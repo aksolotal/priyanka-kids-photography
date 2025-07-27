@@ -3,39 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priyanka Kids Photography</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <title>Priyanks Kids Photography - Reviews & More</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Lora for headings, Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to refine the theme colors and fonts */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #4a5568; /* Darker gray for readability */
+            background-color: #FDFDFD; /* Near white, very soft */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            font-weight: 500; /* Medium light for a royal feel */
+            color: #2D3748; /* Darker charcoal for headings */
+        }
+        /* Specific brand colors */
+        .color-primary-light {
+            color: #fce7f3; /* Blush Pink */
+        }
+        .bg-primary-light {
+            background-color: #fce7f3; /* Blush Pink */
+        }
+        .color-secondary-light {
+            color: #cfe2f3; /* Powder Blue */
+        }
+        .bg-secondary-light {
+            background-color: #cfe2f3; /* Powder Blue */
+        }
+        .color-accent-gold {
+            color: #d4af37; /* Subtle Gold */
+        }
+        .border-accent-gold {
+            border-color: #d4af37;
+        }
+        .hover\:bg-accent-gold:hover {
+            background-color: #d4af37;
+        }
 
-<header class="container">
-    <div class="logo">
-        <a href="index.html">Priyanka Kids Photography</a>
+        /* Styling for active navigation link */
+        .nav-link.active {
+            font-weight: 600;
+            color: #d4af37; /* Highlight active link with gold */
+            border-bottom: 2px solid #d4af37;
+        }
+
+        /* Gallery filter buttons */
+        .gallery-filter-btn {
+            @apply px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ease-in-out;
+            border: 1px solid #e2e8f0; /* Light gray border */
+            color: #4a5568;
+            background-color: #ffffff;
+        }
+        .gallery-filter-btn:hover {
+            @apply bg-primary-light;
+            color: #2D3748;
+        }
+        .gallery-filter-btn.active-filter {
+            @apply bg-secondary-light;
+            color: #2D3748;
+            border-color: #cfe2f3;
+            font-weight: 500;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-stone-50">
+<!-- Header/Navigation -->
+<header class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-sm z-50 py-4 px-8 md:px-12">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-lora text-gray-800 tracking-wide">Priyanks Kids Photography</h1>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+                <li><a href="#home" class="nav-link text-gray-600 hover:text-pink-300 pb-1 transition-colors duration-200">Home</a></li>
+                <li><a href="#about" class="nav-link text-gray-600 hover:text-blue-300 pb-1 transition-colors duration-200">About</a></li>
+                <li><a href="#galleries" class="nav-link text-gray-600 hover:text-pink-300 pb-1 transition-colors duration-200">Galleries</a></li>
+                <li><a href="#reviews" class="nav-link text-gray-600 hover:text-blue-300 pb-1 transition-colors duration-200">Reviews</a></li>
+                <li><a href="#investment" class="nav-link text-gray-600 hover:text-blue-300 pb-1 transition-colors duration-200">Investment</a></li>
+                <li><a href="#dream-session" class="nav-link text-gray-600 hover:text-pink-300 pb-1 transition-colors duration-200">Dream Session ✨</a></li>
+                <li><a href="#contact" class="nav-link text-gray-600 hover:text-pink-300 pb-1 transition-colors duration-200">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Button (Hamburger) -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
     </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="contact.html">Contact</a>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="md:hidden mt-4 hidden">
+        <ul class="flex flex-col space-y-3 items-center">
+            <li><a href="#home" class="nav-link text-gray-600 hover:text-pink-300 py-2 block">Home</a></li>
+            <li><a href="#about" class="nav-link text-gray-600 hover:text-blue-300 py-2 block">About</a></li>
+            <li><a href="#galleries" class="nav-link text-gray-600 hover:text-pink-300 py-2 block">Galleries</a></li>
+            <li><a href="#reviews" class="nav-link text-gray-600 hover:text-blue-300 py-2 block">Reviews</a></li>
+            <li><a href="#investment" class="nav-link text-gray-600 hover:text-blue-300 py-2 block">Investment</a></li>
+            <li><a href="#dream-session" class="nav-link text-gray-600 hover:text-pink-300 py-2 block">Dream Session ✨</a></li>
+            <li><a href="#contact" class="nav-link text-gray-600 hover:text-pink-300 py-2 block">Contact</a></li>
+        </ul>
     </nav>
 </header>
 
-<main class="container">
-    <section class="hero">
-        <img src="content/photos/newborn-1.jpg" alt="A beautiful newborn baby" style="width:100%; border-radius: 5px;">
+<main class="pt-24">
+    <!-- Home Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <img src="https://placehold.co/1920x1080/cfe2f3/2D3748?text=Cherished+Beginnings" alt="Homepage Hero Image" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 text-white p-4">
+            <h2 class="text-6xl md:text-8xl font-lora font-light leading-tight drop-shadow-lg mb-12">Priyanks Kids Photography</h2>
+            <p class="text-xl md:text-2xl font-inter font-light drop-shadow-lg">Capturing the Tender Moments of Your Growing Family</p>
+            <a href="#contact" class="inline-block mt-8 px-8 py-3 bg-pink-300 text-white text-lg font-medium rounded-full shadow-lg hover:bg-pink-400 transition-colors duration-300 transform hover:scale-105">Book Your Session</a>
+        </div>
     </section>
 
-    <section style="text-align: center; margin-top: 40px;">
-        <h1>Capturing Childhood Moments</h1>
-        <p>Welcome to my world of children's photography, where every picture tells a story of innocence, joy, and love.</p>
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-stone-50 container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-12">
+            <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">About Priyanka Das</h3>
+            <p class="text-gray-600 font-inter text-lg">Your Story, My Lens, Endless Memories.</p>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:space-x-12">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="https://placehold.co/600x400/fce7f3/2D3748?text=Priyanka+Das" alt="Priyanka Das" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="md:w-1/2 text-gray-700 leading-relaxed text-lg">
+                <p class="mb-4">Hello! I'm Priyanka Das, the founder and lead photographer behind **Priyanks Kids Photography**. I'm absolutely passionate about capturing the most precious chapters of your family's journey. From the gentle curves of maternity to the tiny toes of newborns and the infectious giggles of toddlers, I believe every moment is a miracle worth preserving.</p>
+                <p class="mb-4">My approach is rooted in **patience, warmth, and an unwavering commitment to safety**. Especially with my littlest clients, I create a calm, nurturing environment where both parents and babies feel completely at ease. I understand the nuances of working with infants and active toddlers, ensuring every session is relaxed and enjoyable.</p>
+                <p>It's an honor to transform these fleeting stages into timeless works of art that you'll cherish for generations. Let's create something beautiful together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galleries Section -->
+    <section id="galleries" class="py-16 md:py-24 bg-gradient-to-br from-pink-50 via-blue-50 to-stone-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">Our Galleries</h3>
+                <p class="text-gray-600 font-inter text-lg">Explore the magic we create, tailored for every stage.</p>
+            </div>
+
+            <div class="flex justify-center space-x-4 mb-12 flex-wrap">
+                <button class="gallery-filter-btn active-filter" data-category="all">All Photos</button>
+                <button class="gallery-filter-btn" data-category="newborn">Newborn</button>
+                <button class="gallery-filter-btn" data-category="toddler">Toddler</button>
+                <button class="gallery-filter-btn" data-category="maternity">Maternity</button>
+            </div>
+
+            <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Newborn Photos -->
+                <div class="gallery-item newborn bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/fce7f3/2D3748?text=Newborn+Delight+1" alt="Newborn Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Newborn Delight</h4>
+                        <p class="text-gray-600 font-inter text-sm">Tiny fingers, tiny toes, endless love.</p>
+                    </div>
+                </div>
+                <div class="gallery-item newborn bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/cfe2f3/2D3748?text=Newborn+Dream+2" alt="Newborn Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Dreamy Sleep</h4>
+                        <p class="text-gray-600 font-inter text-sm">Peaceful moments, forever captured.</p>
+                    </div>
+                </div>
+                <div class="gallery-item newborn bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/f0f8ff/2D3748?text=Newborn+Sweet+3" alt="Newborn Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Sweetest Beginnings</h4>
+                        <p class="text-gray-600 font-inter text-sm">The start of a beautiful story.</p>
+                    </div>
+                </div>
+
+                <!-- Toddler Photos -->
+                <div class="gallery-item toddler bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/fee2e2/2D3748?text=Toddler+Joy+1" alt="Toddler Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Playful Spirit</h4>
+                        <p class="text-gray-600 font-inter text-sm">Giggles and endless curiosity.</p>
+                    </div>
+                </div>
+                <div class="gallery-item toddler bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/e0f2fe/2D3748?text=Toddler+Adventure+2" alt="Toddler Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Little Adventurer</h4>
+                        <p class="text-gray-600 font-inter text-sm">Exploring the world, one step at a time.</p>
+                    </div>
+                </div>
+                <div class="gallery-item toddler bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/d1fae5/2D3748?text=Toddler+Smiles+3" alt="Toddler Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Heartfelt Smiles</h4>
+                        <p class="text-gray-600 font-inter text-sm">Pure joy, unscripted moments.</p>
+                    </div>
+                </div>
+
+                <!-- Maternity Photos -->
+                <div class="gallery-item maternity bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/fef3c7/2D3748?text=Maternity+Glow+1" alt="Maternity Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Maternity Glow</h4>
+                        <p class="text-gray-600 font-inter text-sm">Celebrating new life within.</p>
+                    </div>
+                </div>
+                <div class="gallery-item maternity bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/e0e7ff/2D3748?text=Maternity+Anticipation+2" alt="Maternity Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Joyful Anticipation</h4>
+                        <p class="text-gray-600 font-inter text-sm">The journey of becoming a mother.</p>
+                    </div>
+                </div>
+                <div class="gallery-item maternity bg-white rounded-xl shadow-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/ffe4e6/2D3748?text=Maternity+Serenity+3" alt="Maternity Photo" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-lora mb-2 text-gray-800">Maternity Serenity</h4>
+                        <p class="text-gray-600 font-inter text-sm">Grace and beauty in bloom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 md:py-24 bg-stone-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">What Our Clients Say</h3>
+                <p class="text-gray-600 font-inter text-lg">Heartfelt words from the families we've had the pleasure to work with.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <p class="text-gray-700 font-inter italic mb-6">"Priyanka has an incredible gift for working with newborns. Our little one was so comfortable, and the photos are absolutely beyond anything we imagined – pure magic!"</p>
+                    <p class="font-lora text-lg font-semibold text-pink-400">- Priya & Rahul S.</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <p class="text-gray-700 font-inter italic mb-6">"Our maternity shoot with Priyanka was such a beautiful experience. She made me feel so radiant and at ease. The photos perfectly capture the joy and anticipation of this special time."</p>
+                    <p class="font-lora text-lg font-semibold text-blue-400">- Deepa M.</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <p class="text-gray-700 font-inter italic mb-6">"We're so thrilled with our toddler's photos! Priyanka managed to capture his cheeky personality and boundless energy so wonderfully. Every shot is a treasure."</p>
+                    <p class="font-lora text-lg font-semibold text-pink-400">- Sameer K.</p>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                    <p class="text-gray-700 font-inter italic mb-6">"From start to finish, the experience was seamless and so enjoyable. Priyanka is not just a photographer; she's an artist who truly understands how to capture the essence of childhood."</p>
+                    <p class="font-lora text-lg font-semibold text-blue-400">- Anjali V.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="py-16 md:py-24 bg-stone-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">Your Investment</h3>
+                <p class="text-gray-600 font-inter text-lg">Capturing memories is an investment in your family's legacy.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Package 1: Newborn -->
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <h4 class="text-2xl font-lora mb-4 text-pink-400">Newborn Dream</h4>
+                        <p class="text-gray-700 font-inter leading-relaxed mb-6">
+                            The perfect session for your precious newborn, typically booked within the first 14 days.
+                        </p>
+                        <ul class="text-gray-600 font-inter list-disc list-inside text-left mx-auto max-w-xs mb-6 space-y-2">
+                            <li>2-3 Hour Session</li>
+                            <li>All Props & Outfits Provided</li>
+                            <li>15 High-Resolution Digital Images</li>
+                            <li>Online Gallery</li>
+                        </ul>
+                    </div>
+                    <p class="text-4xl font-lora text-gray-800 mb-4 font-light">Starting from <span class="color-accent-gold">₹15,000</span></p>
+                    <a href="#contact" class="inline-block mt-4 px-6 py-2 bg-pink-300 text-white font-medium rounded-full hover:bg-pink-400 transition-colors duration-300">Learn More</a>
+                </div>
+
+                <!-- Package 2: Toddler -->
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <h4 class="text-2xl font-lora mb-4 text-blue-400">Toddler Tales</h4>
+                        <p class="text-gray-700 font-inter leading-relaxed mb-6">
+                            Capturing the vibrant personality and playful spirit of your little one.
+                        </p>
+                        <ul class="text-gray-600 font-inter list-disc list-inside text-left mx-auto max-w-xs mb-6 space-y-2">
+                            <li>1-1.5 Hour Session</li>
+                            <li>Up to 2 Outfit Changes</li>
+                            <li>20 High-Resolution Digital Images</li>
+                            <li>Outdoor or Studio Option</li>
+                        </ul>
+                    </div>
+                    <p class="text-4xl font-lora text-gray-800 mb-4 font-light">Starting from <span class="color-accent-gold">₹12,000</span></p>
+                    <a href="#contact" class="inline-block mt-4 px-6 py-2 bg-blue-300 text-white font-medium rounded-full hover:bg-blue-400 transition-colors duration-300">Learn More</a>
+                </div>
+
+                <!-- Package 3: Maternity -->
+                <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <h4 class="text-2xl font-lora mb-4 text-pink-400">Maternity Glow</h4>
+                        <p class="text-gray-700 font-inter leading-relaxed mb-6">
+                            Celebrate the beautiful journey of motherhood with an elegant session.
+                        </p>
+                        <ul class="text-gray-600 font-inter list-disc list-inside text-left mx-auto max-w-xs mb-6 space-y-2">
+                            <li>1 Hour Session</li>
+                            <li>Access to Client Wardrobe</li>
+                            <li>10 High-Resolution Digital Images</li>
+                            <li>Choice of Studio or Outdoor</li>
+                        </ul>
+                    </div>
+                    <p class="text-4xl font-lora text-gray-800 mb-4 font-light">Starting from <span class="color-accent-gold">₹10,000</span></p>
+                    <a href="#contact" class="inline-block mt-4 px-6 py-2 bg-pink-300 text-white font-medium rounded-full hover:bg-pink-400 transition-colors duration-300">Learn More</a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-600 font-inter text-md">Custom packages and additional products (albums, prints, canvases) are available upon request.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dream Session Idea Generator Section (NEW) -->
+    <section id="dream-session" class="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-pink-50 to-stone-100">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">✨ Design Your Dream Session ✨</h3>
+            <p class="text-gray-600 font-inter text-lg mb-8">
+                Describe your vision, and our AI assistant will suggest creative themes, props, and color palettes that fit your unique style!
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                <textarea id="dream-input" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200 mb-6" placeholder="Tell us about your ideal shoot! For example: 'A newborn shoot with moon and stars, soft and magical,' or 'A maternity session in a floral garden, very elegant.'"></textarea>
+                <button id="generate-dream-button" class="inline-block px-8 py-3 bg-pink-300 text-white text-lg font-medium rounded-full shadow-lg hover:bg-pink-400 transition-colors duration-300 transform hover:scale-105">
+                    Generate Ideas ✨
+                </button>
+                <div id="dream-output-loading" class="mt-8 hidden">
+                    <div class="flex items-center justify-center">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                        <p class="ml-4 text-gray-600 font-inter">Generating beautiful ideas...</p>
+                    </div>
+                </div>
+                <div id="dream-output" class="mt-8 text-left text-gray-800 font-inter leading-relaxed space-y-4">
+                    <!-- Generated ideas will appear here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-pink-50 to-stone-100">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl md:text-5xl font-lora mb-4 text-gray-800">Connect With Us</h3>
+                <p class="text-gray-600 font-inter text-lg">Let's create timeless memories for your family.</p>
+                <p class="text-xl md:text-2xl font-lora mt-6 text-gray-700">Call or WhatsApp us at: <a href="tel:+919108287163" class="text-pink-400 hover:underline">9108287163</a></p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-inter text-lg mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-inter text-lg mb-2">Your Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200" placeholder="john.doe@example.com">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-inter text-lg mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200" placeholder="+91 12345 67890">
+                    </div>
+                    <div>
+                        <label for="inquiry" class="block text-gray-700 font-inter text-lg mb-2">Inquiry Type</label>
+                        <select id="inquiry" name="inquiry" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200">
+                            <option value="">Select an option</option>
+                            <option value="newborn">Newborn Photography</option>
+                            <option value="toddler">Toddler Photography</option>
+                            <option value="maternity">Maternity Photography</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-inter text-lg mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-200 focus:border-pink-300 outline-none transition-all duration-200" placeholder="Tell me more about what you're looking for..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="inline-block px-10 py-4 bg-pink-300 text-white text-xl font-medium rounded-full shadow-lg hover:bg-pink-400 transition-colors duration-300 transform hover:scale-105">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 </main>
 
-<footer class="container">
-    <p>&copy; 2025 Priyanka Kids Photography. All Rights Reserved.</p>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8 text-center">
+    <div class="container mx-auto px-6">
+        <p class="font-inter text-sm">&copy; 2025 Priyanks Kids Photography. All rights reserved.</p>
+        <p class="font-inter text-sm mt-2">Crafted with love for your cherished moments.</p>
+    </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script>
+    // JavaScript for smooth scrolling navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    });
+
+    // JavaScript for gallery filtering
+    const galleryFilterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            galleryFilterButtons.forEach(btn => btn.classList.remove('active-filter'));
+            // Add active class to the clicked button
+            button.classList.add('active-filter');
+
+            const category = button.dataset.category;
+
+            galleryItems.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block'; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+        });
+    });
+
+    // JavaScript for mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Highlight active navigation link based on scroll position
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // Adjust for header height
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.href.includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Set initial active state for Home link
+    window.addEventListener('load', () => {
+        document.querySelector('.nav-link[href="#home"]').classList.add('active');
+    });
+
+    // JavaScript for Dream Session Idea Generator (NEW)
+    document.getElementById('generate-dream-button').addEventListener('click', async () => {
+        const dreamInput = document.getElementById('dream-input').value;
+        const dreamOutput = document.getElementById('dream-output');
+        const loadingIndicator = document.getElementById('dream-output-loading');
+
+        if (!dreamInput.trim()) {
+            dreamOutput.innerHTML = '<p class="text-red-500">Please describe your dream session to get ideas!</p>';
+            return;
+        }
+
+        dreamOutput.innerHTML = ''; // Clear previous results
+        loadingIndicator.classList.remove('hidden'); // Show loading indicator
+
+        let chatHistory = [];
+        // Prompt engineered to generate creative, theme-aligned ideas for photography sessions
+        const prompt = `As a creative photography session planner for newborn, toddler, and maternity shoots, generate 3-5 unique and beautiful theme ideas, prop suggestions, and color palettes based on the client preference: "${dreamInput}".
+
+            Focus on themes common in professional photography for these categories, and align with a 'Soft Serenity & Dreamy Beginnings' style. Consider variations of themes like:
+            - **Newborn:** 'Cloud Nine,' 'Woodland Creature,' 'Floral Fantasy,' 'Cozy Home,' 'Starry Night.'
+            - **Maternity:** 'Goddess in Nature,' 'Boho Chic,' 'Elegant Studio,' 'Golden Hour Radiance,' 'Water Serenity.'
+            - **Toddler:** 'Whimsical Garden Explorer,' 'Little Artist,' 'Storybook Character,' 'First Birthday Cake Smash,' 'Barnyard Fun.'
+
+            For each idea, provide a clear title, a brief description of the theme, suggestions for props/outfits, and a suitable color palette. Ensure the output is formatted as a clear, easy-to-read list.`
+
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+        const payload = { contents: chatHistory };
+        const apiKey = ""; // API key will be automatically provided by Canvas runtime
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+        let retryCount = 0;
+        const maxRetries = 3;
+        let success = false;
+
+        while (retryCount < maxRetries && !success) {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    if (response.status === 429) { // Too Many Requests - Implement exponential backoff
+                        const delay = Math.pow(2, retryCount) * 1000;
+                        console.warn(`Rate limit hit. Retrying in ${delay / 1000}ms...`);
+                        await new Promise(res => setTimeout(res, delay));
+                        retryCount++;
+                        continue; // Retry the request
+                    } else {
+                        throw new Error(`API error: ${response.status} ${response.statusText}`);
+                    }
+                }
+
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    // Basic markdown to HTML conversion for lists and bolding
+                    const formattedText = text
+                        .replace(/### (.*)/g, '<h4><strong>$1</strong></h4>') // Convert H3 to H4 and bold
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
+                        .replace(/^- (.*)/gm, '<li>$1</li>'); // Convert markdown lists to HTML list items
+
+                    // If there are list items, wrap them in ul tags
+                    if (formattedText.includes('<li>')) {
+                        // Split the text by headings to properly wrap lists within each idea
+                        const ideas = formattedText.split('<h4><strong>').filter(s => s.trim() !== '');
+                        let htmlOutput = '';
+                        ideas.forEach(idea => {
+                            const parts = idea.split('</strong></h4>');
+                            const title = parts[0].trim();
+                            const content = parts[1] ? parts[1].trim() : '';
+
+                            const ulStart = content.indexOf('<li>');
+                            if (ulStart !== -1) {
+                                const preList = content.substring(0, ulStart);
+                                const listItems = content.substring(ulStart);
+                                htmlOutput += `<h4><strong>${title}</strong></h4><p>${preList}</p><ul>${listItems}</ul>`;
+                            } else {
+                                htmlOutput += `<h4><strong>${title}</strong></h4><p>${content}</p>`;
+                            }
+                        });
+                        dreamOutput.innerHTML = htmlOutput;
+                    } else {
+                        dreamOutput.innerHTML = formattedText;
+                    }
+                    success = true; // Mark as successful to exit loop
+                } else {
+                    dreamOutput.innerHTML = '<p class="text-red-500">Could not generate ideas. The AI response was empty.</p>';
+                }
+            } catch (error) {
+                console.error('Error generating dream session ideas:', error);
+                dreamOutput.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}. Please try again later.</p>`;
+                retryCount++;
+                if (retryCount < maxRetries) {
+                    const delay = Math.pow(2, retryCount) * 1000;
+                    console.warn(`Error during fetch. Retrying in ${delay / 1000}ms...`);
+                    await new Promise(res => setTimeout(res, delay));
+                }
+            } finally {
+                // Hide loading indicator only after successful response or max retries
+                if (success || retryCount === maxRetries) {
+                    loadingIndicator.classList.add('hidden');
+                }
+            }
+        }
+    });
+</script>
 </body>
 </html>
