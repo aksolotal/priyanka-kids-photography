@@ -86,6 +86,8 @@ h1 em, h2 em { color: var(--wine); font-style: italic; }
 .story-tall .story-image { aspect-ratio: .72 / 1; }
 .story-square { grid-column: 1; }
 .story-square .story-image { aspect-ratio: 1 / .92; }
+.story-feature { grid-column: 2; }
+.story-feature .story-image { aspect-ratio: 1.15 / 1; }
 .story-small { align-self: end; grid-column: 2; margin-top: 10px; }
 .story-small .story-image { aspect-ratio: 1.15 / 1; }
 figcaption { display: grid; gap: 0 9px; grid-template-columns: 28px 1fr; margin-top: 13px; }
@@ -174,6 +176,7 @@ figcaption small { color: var(--muted); font-size: 9px; font-weight: 700; grid-c
   .story-wide { grid-column: 1 / 3; }
   .story-tall { grid-column: 2; grid-row: auto; padding-top: 45px; }
   .story-square { grid-column: 1; }
+  .story-feature { grid-column: 2; }
   .story-small { grid-column: 1 / 3; margin: 0; width: 71%; }
   .gallery-pullquote { align-self: center; grid-column: 2; margin: 0; padding: 24px 17px; }
   .gallery-pullquote p { font-size: 25px; margin-bottom: 22px; }
