@@ -52,7 +52,7 @@ h1 em, h2 em, blockquote em { font-style: italic; }
 .hero-location { right: 4.3vw; }
 .hero-number { left: 4.3vw; }
 
-.intro { display: grid; grid-template-areas: "heading heading note" "main main side"; grid-template-columns: 1.1fr .65fr .6fr; grid-template-rows: auto 1fr; margin: 0 auto; max-width: 1500px; min-height: 960px; padding: 150px 7vw 120px; position: relative; row-gap: 62px; }
+.intro { background: #e4e9df; display: grid; grid-template-areas: "heading heading note" "main main side"; grid-template-columns: 1.1fr .65fr .6fr; grid-template-rows: auto 1fr; margin: 0 auto; max-width: 1500px; min-height: 960px; padding: 150px 7vw 120px; position: relative; row-gap: 62px; }
 .intro-heading { grid-area: heading; position: relative; z-index: 2; }
 .intro h2, .section-title h2, .gallery h2, .about h2 { font-size: clamp(55px, 6.4vw, 96px); line-height: .95; }
 .intro h2 em, .section-title h2 em, .gallery h2 em, .about h2 em { color: var(--terracotta); }
@@ -64,7 +64,7 @@ h1 em, h2 em, blockquote em { font-style: italic; }
 .intro-photo img { height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.7,.2,1); width: 100%; }
 .intro-photo:hover img { transform: scale(1.035); }
 .intro-photo-main { grid-area: main; height: 590px; margin: 0 4vw 0 3vw; }
-.intro-photo-small { align-self: start; border: 10px solid var(--cream); grid-area: side; height: 430px; margin: 0 0 0 -2vw; position: relative; width: calc(100% + 2vw); z-index: 2; }
+.intro-photo-small { align-self: start; border: 10px solid var(--paper); grid-area: side; height: 430px; margin: 0 0 0 -2vw; position: relative; width: calc(100% + 2vw); z-index: 2; }
 .hand-note { bottom: 98px; color: var(--rust); font-family: var(--serif); font-size: 19px; font-style: italic; left: 8vw; line-height: 1.25; margin: 0; position: absolute; transform: rotate(-7deg); }
 
 .portfolio { background: var(--paper); padding: 140px 6vw 165px; }
