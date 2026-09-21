@@ -52,7 +52,7 @@ h1 em, h2 em, blockquote em { font-style: italic; }
 .hero-location { right: 4.3vw; }
 .hero-number { left: 4.3vw; }
 
-.intro { background: #e4e9df; display: grid; grid-template-areas: "heading heading note" "main main side"; grid-template-columns: 1.1fr .65fr .6fr; grid-template-rows: auto 1fr; margin: 0 auto; max-width: 1500px; min-height: 960px; padding: 150px 7vw 120px; position: relative; row-gap: 62px; }
+.intro { background: #f7e8df; display: grid; grid-template-areas: "heading heading note" "main main side"; grid-template-columns: 1.1fr .65fr .6fr; grid-template-rows: auto 1fr; margin: 0 auto; max-width: 1500px; min-height: 960px; padding: 150px 7vw 120px; position: relative; row-gap: 62px; }
 .intro-heading { grid-area: heading; position: relative; z-index: 2; }
 .intro h2, .section-title h2, .gallery h2, .about h2 { font-size: clamp(55px, 6.4vw, 96px); line-height: .95; }
 .intro h2 em, .section-title h2 em, .gallery h2 em, .about h2 em { color: var(--terracotta); }
